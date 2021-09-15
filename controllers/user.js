@@ -6,7 +6,7 @@ const { Telegraf } = require('telegraf')
 const bot = new Telegraf(YOUR_TOKEN);
 // const createBot = require('../telegram/bot');
 // createBot();
-const chatId = '-530346437'
+const chatId = '-1001442483526'
 const opt = {
   parse_mode: 'HTML'
 }
@@ -17,7 +17,7 @@ const Googleapi = require('../googleSheets/googleapi');
 module.exports.userData = (req, res, next) => {
   let date = new Date();
   let editDate = EditDate.editDataFormat(date.toJSON().slice(0, 10));
-  const { name, email, telephone, status } = req.body;
+  const { name, email, telephone, status = "home"} = req.body;
   req.body.date = editDate;
   const source = 'Сайт'
   req.body.source = source
